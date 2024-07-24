@@ -1,0 +1,35 @@
+{
+  "name": "jonsun.dev",
+  "version": "1.0.0",
+  "description": "monorepo template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talent30/monorepo-template.git"
+  },
+  "author": "Jon Sun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Talent30/monorepo-template/issues"
+  },
+  "homepage": "https://github.com/Talent30/monorepo-template#readme",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@acme/prettier-config": "workspace:*",
+    "@turbo/gen": "^2.0.6",
+    "prettier": "catalog:",
+    "turbo": "^2.0.6",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
+  "engineStrict": true,
+  "engines": {
+    "node": "v22.x"
+  },
+  "scripts": {
+    "postinstall": "patch-package"
+  }
+}
