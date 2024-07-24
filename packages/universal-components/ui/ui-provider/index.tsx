@@ -8,7 +8,7 @@ import { config } from "./config";
 
 export function GluestackUIProvider({
   mode = "light",
-  ...properties
+  ...props
 }: {
   mode?: "light" | "dark";
   children?: ReactNode;
@@ -19,11 +19,11 @@ export function GluestackUIProvider({
       style={[
         config[mode],
         { flex: 1, height: "100%", width: "100%" },
-        properties.style,
+        props.style,
       ]}
     >
       <OverlayProvider>
-        <ToastProvider>{properties.children}</ToastProvider>
+        <ToastProvider>{props.children}</ToastProvider>
       </OverlayProvider>
     </View>
   );

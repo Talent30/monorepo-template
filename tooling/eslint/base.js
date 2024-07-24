@@ -1,12 +1,12 @@
 /// <reference types="./types.d.ts" />
 
-import eslint from "@eslint/js";
-import turboPlugin from "eslint-plugin-turbo";
-import tseslint from "typescript-eslint";
-import eslintPluginUnicorn from "eslint-plugin-unicorn";
-import importPlugin from 'eslint-plugin-import-x'
-import { fixupConfigRules, fixupPluginRules} from "@eslint/compat";
+import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 import { FlatCompat } from "@eslint/eslintrc";
+import eslint from "@eslint/js";
+import importPlugin from "eslint-plugin-import-x";
+import turboPlugin from "eslint-plugin-turbo";
+import eslintPluginUnicorn from "eslint-plugin-unicorn";
+import tseslint from "typescript-eslint";
 
 const compat = new FlatCompat();
 /**
@@ -42,19 +42,19 @@ export default tseslint.config(
     ignores: ["**/*.config.*"],
   },
   {
-    files: ["**/*.js", "**/*.ts", "**/*.tsx",'*.ts'],
+    files: ["**/*.js", "**/*.ts", "**/*.tsx", "*.ts"],
     plugins: {
       turbo: turboPlugin,
-      import: fixupPluginRules(importPlugin)
+      import: fixupPluginRules(importPlugin),
     },
     extends: [
       eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
-      ...tseslint.configs.stylisticTypeChecked,      eslintPluginUnicorn.configs["flat/recommended"],
-      ...fixupConfigRules(compat.extends('plugin:import-x/typescript')),
-      ...fixupConfigRules(compat.extends('plugin:import-x/recommended'))
-
+      ...fixupConfigRules(compat.extends("plugin:import-x/typescript")),
+      ...fixupConfigRules(compat.extends("plugin:import-x/recommended")),
+      ...tseslint.configs.strict,
+      ...tseslint.configs.strictTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
+      eslintPluginUnicorn.configs["flat/recommended"],
     ],
     rules: {
       ...turboPlugin.configs.recommended.rules,
@@ -76,13 +76,28 @@ export default tseslint.config(
           allowConstantLoopConditions: true,
         },
       ],
+      "unicorn/prevent-abbreviations": [
+        "error",
+        {
+          allowList: {
+            props: true,
+            ref: true,
+          },
+        },
+      ],
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "@typescript-eslint/no-non-null-assertion": "error",
       "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
-      "import/no-default-export":"error",
+      "import/no-default-export": "error",
     },
   },
   {
     linterOptions: { reportUnusedDisableDirectives: true },
-    languageOptions: { parserOptions: { projectService: true } },
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
   },
 );
