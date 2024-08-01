@@ -22,15 +22,6 @@ declare module "eslint-plugin-import-x" {
   export const rules: Record<string, Rule.RuleModule>;
 }
 
-declare module "eslint-plugin-unicorn" {
-  import type { Linter, Rule } from "eslint";
-
-  export const configs: {
-    "flat/recommended": { rules: Linter.RulesRecord };
-  };
-  export const rules: Record<string, Rule.RuleModule>;
-}
-
 declare module "eslint-plugin-react" {
   import type { Linter, Rule } from "eslint";
 

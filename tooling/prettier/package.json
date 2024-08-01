@@ -11,12 +11,12 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.3.0",
-    "prettier": "catalog:"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@acme/tsconfig": "workspace:*",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "prettier": "catalog:",
     "typescript": "catalog:"
   },
   "prettier": "@acme/prettier-config"

@@ -39,19 +39,18 @@ export const restrictEnvAccess = tseslint.config({
 export default tseslint.config(
   {
     // Globally ignored files
-    ignores: ["**/*.config.*"],
+    ignores: ["**/*.config.*", "node_modules", "dist"],
   },
   {
     files: ["**/*.js", "**/*.ts", "**/*.tsx", "*.ts"],
     plugins: {
       turbo: turboPlugin,
-      import: fixupPluginRules(importPlugin),
+      // import: fixupPluginRules(importPlugin),
     },
     extends: [
       eslint.configs.recommended,
-      ...fixupConfigRules(compat.extends("plugin:import-x/typescript")),
-      ...fixupConfigRules(compat.extends("plugin:import-x/recommended")),
-      ...tseslint.configs.strict,
+      ...compat.config(importPlugin.configs.recommended),
+      importPlugin.configs.typescript,
       ...tseslint.configs.strictTypeChecked,
       ...tseslint.configs.stylisticTypeChecked,
       eslintPluginUnicorn.configs["flat/recommended"],
@@ -62,20 +61,11 @@ export default tseslint.config(
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
-      "@typescript-eslint/consistent-type-imports": [
-        "warn",
-        { prefer: "type-imports", fixStyle: "separate-type-imports" },
-      ],
       "@typescript-eslint/no-misused-promises": [
         2,
         { checksVoidReturn: { attributes: false } },
       ],
-      "@typescript-eslint/no-unnecessary-condition": [
-        "error",
-        {
-          allowConstantLoopConditions: true,
-        },
-      ],
+      "prefer-arrow-callback": "error",
       "unicorn/prevent-abbreviations": [
         "error",
         {
@@ -87,11 +77,9 @@ export default tseslint.config(
       ],
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "@typescript-eslint/no-non-null-assertion": "error",
-      "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
-      "import/no-default-export": "error",
+      "import-x/consistent-type-specifier-style": ["error", "prefer-top-level"],
+      "import-x/no-default-export": "error",
     },
-  },
-  {
     linterOptions: { reportUnusedDisableDirectives: true },
     languageOptions: {
       parserOptions: {

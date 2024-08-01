@@ -17,6 +17,6 @@
   "homepage": "https://github.com/Talent30/monorepo-template#readme",
   "description": "",
   "dependencies": {
-    "lucide-react": "^0.408.0"
+    "lucide-react": "^0.418.0"
   }
 }

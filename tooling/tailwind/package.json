@@ -14,17 +14,16 @@
 		"lint": "eslint",
 		"typecheck": "tsc --noEmit"
 	},
-	"dependencies": {
-		"postcss": "^8.4.39",
-		"tailwindcss": "^3.4.4",
-		"tailwindcss-animate": "^1.0.7"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@acme/eslint-config": "workspace:*",
 		"@acme/tsconfig": "workspace:*",
 		"eslint": "catalog:",
 		"prettier": "catalog:",
-		"typescript": "catalog:"
+		"typescript": "catalog:",
+		"postcss": "catalog:",
+		"tailwindcss": "catalog:",
+		"tailwindcss-animate": "catalog:"
 	},
 	"prettier": "@acme/prettier-config"
 }
