@@ -3,13 +3,17 @@
   "compilerOptions": {
     /* LANGUAGE COMPILATION OPTIONS */
     "target": "ES2023",
-    "lib": ["DOM", "DOM.Iterable", "ES2023"],
-    "module": "ESNext",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "module": "Preserve",
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": true,
-
+    "jsx": "react-jsx",
     /* EMIT RULES */
     "outDir": "./dist",
     "noEmit": true, // TSUP takes care of emitting js for us, in a MUCH faster way
@@ -17,7 +21,6 @@
     "declarationMap": true,
     "sourceMap": true,
     "removeComments": true,
-
     /* TYPE CHECKING RULES */
     "strict": true,
     // "noImplicitAny": true, // Included in "Strict"
@@ -34,9 +37,9 @@
     "useUnknownInCatchVariables": true,
     "noUncheckedIndexedAccess": true, // TLDR - Checking an indexed value (array[0]) now forces type <T | undefined> as there is no confirmation that index exists
     // THE BELOW ARE EXTRA STRICT OPTIONS THAT SHOULD ONLY BY CONSIDERED IN VERY SAFE PROJECTS
+    "noUncheckedSideEffectImports": true,
     "exactOptionalPropertyTypes": true, // TLDR - Setting to undefined is not the same as a property not being defined at all
     "noPropertyAccessFromIndexSignature": true, // TLDR - Use dot notation for objects if youre sure it exists, use ['index'] notaion if unsure
-
     /* OTHER OPTIONS */
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -47,7 +50,13 @@
     "useDefineForClassFields": true,
     "verbatimModuleSyntax": true,
     "incremental": true,
-"composite": true
+    "composite": true
   },
-  "exclude": ["node_modules", "build", "dist", ".next", ".expo"]
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    ".next",
+    ".expo"
+  ]
 }

@@ -1,0 +1,57 @@
+{
+  "folders": [
+    {
+      "name": "ROOT",
+      "path": "../",
+    },
+    {
+      "name": "packages/ui-components",
+      "path": "../packages/ui-components",
+    },
+    {
+      "name": "packages/eslint",
+      "path": "../packages/eslint",
+    },
+    {
+      "name": "packages/prettier",
+      "path": "../packages/prettier",
+    },
+    {
+      "name": "apps/blog",
+      "path": "../apps/blog",
+    },
+  ],
+  "settings": {
+    "files.exclude": {
+      "packages/": true,
+      "apps/": true,
+    },
+    "eslint.useFlatConfig": true,
+    "typescript.tsdk": "ROOT/node_modules/typescript/lib",
+    "editor.formatOnSave": true,
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "editor.formatOnType": true,
+    "cSpell.enableFiletypes": [
+      "!c",
+      "!cpp",
+      "!java",
+      "!php",
+      "!pug",
+      "!python",
+      "!scala",
+      "tailwindcss",
+    ],
+  },
+  "extensions": {
+    "recommendations": ["yoavbls.pretty-ts-errors", "dbaeumer.vscode-eslint"],
+  },
+}
